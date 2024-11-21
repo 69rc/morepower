@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import img1 from "../assets/img1.jpeg"; // Import the image
+import img1 from "../assets/bg.jpeg"; // Import the image
 
 export function HeroSection() {
   return (
@@ -7,7 +7,7 @@ export function HeroSection() {
       className="relative w-full h-[calc(100vh-9.5rem)] overflow-hidden"
       style={{
         backgroundImage: `url(${img1})`, // Use the imported image here
-        backgroundSize: "cover",
+        // backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
