@@ -41,20 +41,20 @@ const products = [
 
 export default function OraimoHomeSection() {
   return (
-    <section className="home-section">
+    <section className="home-section px-4 sm:px-8 lg:px-16">
       {/* Only Product Carousel */}
-      <div className="mx-[8rem] mt-[3rem] pc:mx-[14rem]">
+      <div className="mt-8 lg:mt-12">
         <ProductCarousel products={products} />
       </div>
 
       {/* Explore Power Button */}
-      <div className="my-[9rem] text-center pc:my-[7.5rem]">
+      <div className="my-12 text-center lg:my-16">
         <Button
           asChild
           variant="outline"
-          className="rounded-full border-primary px-9 py-4 text-2xl font-semibold tracking-widest text-primary sm:px-[4.25rem] sm:py-4 sm:text-lg"
+          className="w-full sm:w-auto rounded-full border-primary px-6 py-3 text-lg font-semibold tracking-widest text-primary sm:px-8 sm:py-4 sm:text-xl"
         >
-          <Link href="/collections/power">
+          <Link to="/collections/power">
             <span className="text-box-trim-black">EXPLORE POWER</span>
           </Link>
         </Button>

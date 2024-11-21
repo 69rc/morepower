@@ -6,41 +6,51 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function ProductCarousel({
-  products,
-}) {
+export default function ProductCarousel({ products }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
 
   return (
     <Swiper
       ref={swiperRef}
-      spaceBetween={20} // Reduced space between slides for a more compact view
-      slidesPerView={4}
+      spaceBetween={16} // Compact spacing for small screens
+      slidesPerView={1} // Start with one slide per view
+      breakpoints={{
+        640: { slidesPerView: 2, spaceBetween: 20 }, // Two slides for tablets
+        1024: { slidesPerView: 3, spaceBetween: 24 }, // Three slides for desktops
+        1280: { slidesPerView: 4, spaceBetween: 32 }, // Four slides for larger screens
+      }}
       navigation
       pagination={{ clickable: true }}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       modules={[Navigation, Pagination]}
-      className="!pb-[3rem] pc:!pb-[3rem]" // Reduced bottom padding for less height
+      className="!pb-12 sm:!pb-16" // Padding adjusts for screen sizes
     >
       {products.map((product, index) => (
         <SwiperSlide key={product.id}>
-          <div className="text-center text-[1.8rem] pc:text-[2rem] text-dark"> {/* Adjusted font size and text color */}
+          <div className="text-center">
+            {/* Product Image */}
             <Link
-              href={product.link}
-              className="relative block aspect-square p-[3rem]" // Reduced padding around image
+              to={product.link}
+              className="relative block p-4 sm:p-6 lg:p-8"
             >
               <img
                 src={product.image}
                 alt={product.name}
-                className="!relative mx-auto object-contain h-[200px] w-full" // Set fixed height for image
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="mx-auto h-40 w-full object-contain sm:h-48 lg:h-56" // Responsive image height
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </Link>
-            <div className="mt-[0.5rem] pc:mt-[0.5rem] truncate text-dark"> {/* Darker text */}
+
+            {/* Product Description */}
+            <div className="mt-2 text-sm text-gray-600 sm:text-base truncate">
               {product.description}
             </div>
-            <div className="font-semibold pc:mt-[0.5rem] text-orange-500">{product.name}</div> {/* Darker text */}
+
+            {/* Product Name */}
+            <div className="mt-1 text-lg font-semibold text-orange-500 sm:mt-2 sm:text-xl">
+              {product.name}
+            </div>
           </div>
         </SwiperSlide>
       ))}
