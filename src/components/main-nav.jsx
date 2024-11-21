@@ -91,7 +91,7 @@ export function MainNav() {
         </NavigationMenu>
       </div>
       {/* Social Media Icons */}
-      <div className="flex space-x-4 ml-4">
+      <div className="flex space-x-4 ml-4 sm-d-grid">
         <a href="https://www.instagram.com/more_power7?igsh=cTZyNXR6YzloN2Zk" target="_blank" rel="noopener noreferrer">
           <FaInstagram className="h-6 w-6 text-white hover:text-orange-500 transition-colors" />
         </a>

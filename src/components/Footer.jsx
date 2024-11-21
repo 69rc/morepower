@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
-import { FaInstagram, FaFacebookF, FaTiktok } from "react-icons/fa";
+// import { FaInstagram, FaFacebookF, FaTiktok } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import { CiFacebook } from "react-icons/ci";
+import { FaTiktok } from "react-icons/fa";
 
 const OraimoLogo = () => (
   <svg
@@ -28,7 +31,18 @@ export default function Footer() {
       <div className="py-10 sm:py-20">
         <div className="flex items-center justify-center">
           <div className="relative w-48 sm:w-64">
-            {/* Logo or Placeholder */}
+          <div className="flex space-x-4 ml-6 sm-d-grid  justify-content-center">
+        <a href="https://www.instagram.com/more_power7?igsh=cTZyNXR6YzloN2Zk" target="_blank" rel="noopener noreferrer">
+          <FaInstagram className="h-9 w-9 text-dark hover:text-orange-500 transition-colors" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61568294131146" target="_blank" rel="noopener noreferrer">
+          <CiFacebook className="h-9 w-9 text-dark hover:text-orange-500 transition-colors" />
+        </a>
+        <a href="https://www.tiktok.com/@more.power8?_t=8rZl7ao1eBL&_r=1" target="_blank" rel="noopener noreferrer">
+          <FaTiktok className="h-9 w-9 text-dark hover:text-orange-500 transition-colors" />
+        </a>
+      </div>
+        
           </div>
         </div>
       </div>
@@ -60,36 +74,13 @@ export default function Footer() {
           >
             BULK ORDER
           </a>
+          
         </div>
-        <div className="flex justify-center items-center gap-4 sm:gap-6 mt-6">
-          <a
-            href="https://www.instagram.com/more_power7?igsh=cTZyNXR6YzloN2Zk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-orange-500 transition duration-300"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://www.facebook.com/morepower7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-orange-500 transition duration-300"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://www.tiktok.com/@more.power8?_t=8rZl7ao1eBL&_r=1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white text-xl sm:text-2xl lg:text-3xl hover:text-orange-500 transition duration-300"
-          >
-            <FaTiktok />
-          </a>
-        </div>
+       
         <div className="mt-6 text-xs sm:text-sm lg:text-base">
           Copyright © 2024 btech. All Rights Reserved.
         </div>
+        
       </div>
     </footer>
   );
