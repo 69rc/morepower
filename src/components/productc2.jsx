@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from "@/components/ui/button";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -193,6 +194,10 @@ export default function ProductCarousel() {
                   <h3 className="text-lg font-semibold text-center mb-2">{product.name}</h3>
                   <p className="text-sm text-gray-600 text-center truncate">{product.description}</p>
                 </Link>
+                <div className="flex items-center justify-center ">
+                   <Button className="bg-orange-500">Buy Now</Button>
+</div>
+
               </CardContent>
             </Card>
           </SwiperSlide>
