@@ -34,6 +34,12 @@ const products = [
 ]
 
 export function MainNav() {
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false)
+
+  const closeSheet = () => {
+    setIsSheetOpen(false)
+  }
+
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between backdrop-blur bg-black/30 lg:bg-black px-4 sm:px-6 lg:px-10 py-4 lg:py-0">
       <Link
@@ -43,9 +49,9 @@ export function MainNav() {
       >
         More power
       </Link>
-      <Sheet>
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetTrigger asChild>
-         
+      
         </SheetTrigger>
         <SheetContent side="right" className="w-[300px] sm:w-[400px]">
           <nav className="flex flex-col gap-4 mt-8">
@@ -55,11 +61,12 @@ export function MainNav() {
                 to={item.href}
                 smooth={true}
                 className="block px-2 py-2 text-lg hover:text-orange-500 transition-colors"
+                onClick={closeSheet}  // Close the menu on link click
               >
                 {item.title}
               </Link>
             ))}
-            <div className="mt-4 border-t pt-4">
+            {/* <div className="mt-4 border-t pt-4">
               <h3 className="text-lg font-semibold mb-2">Products</h3>
               {products.map((product) => (
                 <Link
@@ -67,11 +74,12 @@ export function MainNav() {
                   to={product.href}
                   smooth={true}
                   className="block px-2 py-2 text-sm hover:text-orange-500 transition-colors"
+                  onClick={closeSheet}  // Close the menu on link click
                 >
                   {product.title}
                 </Link>
               ))}
-            </div>
+            </div> */}
           </nav>
         </SheetContent>
       </Sheet>
@@ -92,7 +100,6 @@ export function MainNav() {
                 </Link>
               </NavigationMenuItem>
             ))}
-           
           </NavigationMenuList>
         </NavigationMenu>
       </div>
@@ -123,6 +130,7 @@ export function MainNav() {
       <Button
             variant="ghost"
             className="px-0 text-base hover:bg-transparent focus:ring-0 lg:hidden"
+            onClick={() => setIsSheetOpen(!isSheetOpen)}
           >
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>
@@ -130,4 +138,3 @@ export function MainNav() {
     </nav>
   )
 }
-
