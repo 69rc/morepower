@@ -25,7 +25,8 @@ export default function Footer() {
       </div>
       <div className="grid justify-center text-sm sm:text-lg leading-relaxed pt-8 sm:pt-12 gap-2">
         <div>Address: Beirut road Dankoli Plaza no 28/29 Kano</div>
-        <div>Phone: 0701 502 6930</div>
+        <div>Phone:07066666130 <br />
+        09077777680</div>
         <div>Email: morepower.business@gmail.com</div>
       </div>
       <div className="py-10 sm:py-20">
